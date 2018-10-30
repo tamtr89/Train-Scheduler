@@ -17,23 +17,30 @@ var destination = "";
 var firstTrain = "";
 var frequency = 0;
 
+// Set current Time --- Time with seconds	moment().format("LTS")
+
 //   Button for adding a new Train
 $("#submit-btn").on("click", function (event) {
     event.preventDefault();
-
-
     // Grabs user input
-    if (("#train-name-input").val().trim() === "" ||
-        $("#destination").val().trim() === "" ||
+    if (
+        $("#train-name-input").val().trim() === "" ||
+        $("#destination-input").val().trim() === "" ||
         $("#first-train-input").val().trim() === "" ||
         $("#frequency-input").val().trim() === "") {
         alert("Please fill in the details to add new train!");
-    } else {
 
-        trainName = $("#train-name-input").val("").trim();
-        destination = $("#destination-input").val("").trim();
-        firstTrain = $("first-train-input").val("").trim();
-        frequency = $("#frequency-input").val("").trim();
+    } else {
+        trainName = $("#train-name-input").val().trim();
+        destination = $("#destination-input").val().trim();
+        firstTrain = $("#first-train-input").val().trim();
+        frequency = $("#frequency-input").val().trim();
+
+        // Clear the form
+        $("#train-name-input").val("");
+        $("#destination-input").val("");
+        $("#first-train-input").val("");
+        $("#frequency-input").val("");
     }
 
     // Creates local "temporary" object for holding a new train
@@ -45,16 +52,5 @@ $("#submit-btn").on("click", function (event) {
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 });
-database.ref().push(newTrain);
-// Log everything to console
-console.log(newTrain.name);
-console.log(newTrain.dest);
-console.log(newTrain.stTrain);
-console.log(newTrain.freq);
 
-// alert("New Train Added!!!");
-$("#train-name-input").val("");
-$("#destination_input").val("");
-$("first-train-input").val("");
-$("#frequency-input").val("");
-});
+// firebase watcher .on("child_added")
