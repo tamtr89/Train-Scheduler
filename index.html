@@ -13,12 +13,16 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Google Font Link -->
 
+     <!-- Firebase Link -->
+     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+     <!-- Moment JS Link -->
+
 </head>
 
 <body>
     <div class="container">
         <div class="jumbotron jumbotron-fluid">
-            <h1 class="text-center" class="display-4">Train Scheduler</h1>
+            <h1 class="text-center" class="display-4">TaamTr Express</h1>
             <h3 class="text-center" class="lead">chee chee choo choo</h3>
             <!-- set a current time -->
             <p id="currentTime"></p> <!--set it in app.js-->
@@ -38,25 +42,25 @@
                             <!-- Train Name -->
                             <div class="form-group">
                                 <label>Train Name</label>
-                                <input type="text" class="form-control form-field" id="train-name">
+                                <input type="text" class="form-control form-field" id="train-name-input">
                             </div>
 
                             <!-- Destination -->
                             <div class="form-group">
                                 <label>Destination</label>
-                                <input type="text" class="form-control form-field" id="destination">
+                                <input type="text" class="form-control form-field" id="destination-input">
                             </div>
 
                             <!-- First Train -->
                             <div class="form-group">
                                 <label>First Train Time: HH:mm - military time</label>
-                                <input type="text" class="form-control form-field" id="first-train">
+                                <input type="text" class="form-control form-field" id="first-train-input">
                             </div>
 
                             <!-- Frequency -->
                             <div class="form-group">
                                 <label>Frequency (min)</label>
-                                <input type="text" class="form-control form-field" id="frequency">
+                                <input type="text" class="form-control form-field" id="frequency-input">
                             </div>
                             <!-- Submit btn -->
                             <button type="submit" class="btn btn-dark btn-sm" id="submit-btn">Add Train!</button>
@@ -98,9 +102,7 @@
     </div>
 
     <!-- ======================================================SCRIPT LINKS START HERE=========================================================== -->
-    <!-- Firebase Link -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
-    <!-- Moment JS Link -->
+   
 
     <!-- jQuery Link -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
