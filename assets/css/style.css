@@ -7,3 +7,12 @@ body {
     color: antiquewhite;
     background: black;
 }
+
+#currentTime {
+    background: white;
+    color: black;
+    width: 21%;
+    padding: 5px;
+    float: right;
+  
+}

@@ -17,7 +17,14 @@ var destination = "";
 var firstTrain = "";
 var frequency = 0;
 
-// Set current Time --- Time with seconds	moment().format("LTS")
+// Set current Time --- Month name, day of month, year, time	moment().format("LLL")
+function currentTime() {
+    var current = moment().format("LLL");
+    $("#currentTime").html(current);
+    setTimeout(currentTime, 1000);
+  
+  };
+  currentTime();
 
 //   Button for adding a new Train
 $("#submit-btn").on("click", function (event) {
