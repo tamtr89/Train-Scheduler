@@ -22,9 +22,9 @@ function currentTime() {
     var current = moment().format("LLL");
     $("#currentTime").html(current);
     setTimeout(currentTime, 1000);
-  
-  };
-  currentTime();
+
+};
+
 
 //   Button for adding a new Train
 $("#submit-btn").on("click", function (event) {
@@ -60,26 +60,47 @@ $("#submit-btn").on("click", function (event) {
     });
 });
 
+database.ref().on("child_added", function (childSnapshot) {
+    console.log("snapshot", childSnapshot.val());
 
+    // Calculate the arrival time 
+    var nameVal = childSnapshot.val().name;
+    var destVal = childSnapshot.val().dest;
+    var stTrainVal = childSnapshot.val().stTrain;
+    var freqVal = childSnapshot.val().freq;
 
-database.ref().on("child_added", function(childSnapshot){
-    console.log( "snapshot", childSnapshot.val());
-    
-
-
-// Calculate the arrival time ?
-// the minute till arrival = currentTime - the firsTrainTime, and find the modulus between the diff and the frequency?
-var nameVal = childSnapshot.val().name;
-var destVal =  childSnapshot.val().dest
-
-console.log("name Value", nameVal);
-
-// Add each train's data into the table
+    // Moment.js part
+    var firstTimeConverted = moment(stTrainVal, "hh:mm").subtract(1, "year");
+    console.log("first time: ", firstTimeConverted);
+    // Different between the times
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    console.log("Different Time: ", diffTime);
+    // Time apart ( remainder)
+    var timeRemain = diffTime % freqVal;
+    console.log("Time remainder: ", timeRemain);
+    // the minute till the Train arrival 
+    var tMinutesAway = freqVal - timeRemain;
+    console.log("Minutes till train: ", tMinutesAway);
+    // Next Train Arrival
+    var nextTrain = moment().add(tMinutesAway, "minutes");
+    console.log("Next Train: ", moment(nextTrain).format("hh:mm"));
+    // Remove Train 
+    var childKey = childSnapshot.key;
+    // Add each train's data into the table
     var newRow = $("<tr>");
-
-    newRow.append($("<td>" + nameVal + "</td>"));
-    newRow.append($("<td>" + destVal + "</td>"));
-   
-   $("#newTrain-table-row").prepend(newRow);
-    
+    newRow.append($("<td class='text-center'>" + nameVal + "</td>"));
+    newRow.append($("<td class='text-center'>" + destVal + "</td>"));
+    newRow.append($("<td class='text-center'>" + moment(firstTimeConverted).format("LT") + "</td>"));
+    newRow.append($("<td class='text-center'>" + freqVal + "</td>"));
+    newRow.append($("<td class='text-center'>" + moment(nextTrain).format("LTS") + "</td>"));
+    newRow.append($("<td class='text-center'>" + tMinutesAway + "</td>"));
+    newRow.append($("<td class='text-center'><button class='remove btn btn-danger btn-xs>' data-key='" + childKey + "'>X</button></td>"));
+    $("#newTrain-table-row").prepend(newRow);
 })
+// Function delete ROW
+$(document).on("click", ".remove", function () {
+    keyRef = $(this).attr("data-key");
+    database.ref().child(keyref).remove();
+    window.location.reload();
+});
+currentTime();
