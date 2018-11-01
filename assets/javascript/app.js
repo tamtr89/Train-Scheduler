@@ -60,4 +60,26 @@ $("#submit-btn").on("click", function (event) {
     });
 });
 
-// firebase watcher .on("child_added")
+
+
+database.ref().on("child_added", function(childSnapshot){
+    console.log( "snapshot", childSnapshot.val());
+    
+
+
+// Calculate the arrival time ?
+// the minute till arrival = currentTime - the firsTrainTime, and find the modulus between the diff and the frequency?
+var nameVal = childSnapshot.val().name;
+var destVal =  childSnapshot.val().dest
+
+console.log("name Value", nameVal);
+
+// Add each train's data into the table
+    var newRow = $("<tr>");
+
+    newRow.append($("<td>" + nameVal + "</td>"));
+    newRow.append($("<td>" + destVal + "</td>"));
+   
+   $("#newTrain-table-row").prepend(newRow);
+    
+})

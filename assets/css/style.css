@@ -16,3 +16,11 @@ body {
     float: right;
   
 }
+
+footer {
+    background: rgba(0, 0, 0, 0.459);
+    color: antiquewhite;
+    padding: 3px;
+    margin: 0%;
+    text-align: center;
+}
