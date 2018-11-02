@@ -12,7 +12,8 @@
     <!-- CSS Link -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Google Font Link -->
-
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Teko|Mr+De+Haviland|Philosopher|IM+Fell+English+SC"
+        rel="stylesheet">
     <!-- Firebase Link -->
     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
     <!-- Moment JS Link -->
@@ -23,85 +24,85 @@
 <body>
     <div class="container">
         <div id="effect-container">
-            <div class="jumbotron jumbotron-fluid">
-                <h1 class="text-center" id="display-4">TaamTr Express</h1>
+            <div class="jumbotron">
+                <h1 class="text-center" id="display-4">TAAM EXPRESS</h1>
                 <h3 class="text-center" id="lead">Punctuality Counts</h3>
                 <!-- set a current time -->
                 <p id="currentTime"></p>
                 <!--set it in app.js-->
             </div>
         </div>
-
-        <div class="container">
-            <div class="row">
-                <!-- Add new Train's info area -->
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Add new Train</h5>
-                        </div>
-                        <div class="card-body">
-                            <form>
-                                <!-- Train Name -->
-                                <div class="form-group">
-                                    <label>Train Name</label>
-                                    <input type="text" class="form-control form-field" id="train-name-input">
-                                </div>
-
-                                <!-- Destination -->
-                                <div class="form-group">
-                                    <label>Destination</label>
-                                    <input type="text" class="form-control form-field" id="destination-input">
-                                </div>
-
-                                <!-- First Train -->
-                                <div class="form-group">
-                                    <label>First Train Time: HH:mm - military time</label>
-                                    <input type="text" class="form-control form-field" id="first-train-input">
-                                </div>
-
-                                <!-- Frequency -->
-                                <div class="form-group">
-                                    <label>Frequency (min)</label>
-                                    <input type="text" class="form-control form-field" id="frequency-input">
-                                </div>
-                                <!-- Submit btn -->
-                                <button type="submit" class="btn btn-dark btn-sm" id="submit-btn">Add Train!</button>
-                        </div>
+        <!-- =======Train Table====== -->
+        <div class="row">
+            <!-- Add new Train's info area -->
+            <div class="col-md-3 col-sm-3 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Add new Train</h5>
                     </div>
-                    </form>
+                    <div class="card-body">
+                        <form>
+                            <!-- Train Name -->
+                            <div class="form-group">
+                                <label>Train Name</label>
+                                <input type="text" class="form-control form-field" id="train-name-input">
+                            </div>
 
+                            <!-- Destination -->
+                            <div class="form-group">
+                                <label>Destination</label>
+                                <input type="text" class="form-control form-field" id="destination-input">
+                            </div>
+
+                            <!-- First Train -->
+                            <div class="form-group">
+                                <label>First Train Time: HH:mm - military time</label>
+                                <input type="text" class="form-control form-field" id="first-train-input">
+                            </div>
+
+                            <!-- Frequency -->
+                            <div class="form-group">
+                                <label>Frequency (min)</label>
+                                <input type="text" class="form-control form-field" id="frequency-input">
+                            </div>
+                            <!-- Submit btn -->
+                            <button type="submit" class="btn btn-dark btn-sm" id="submit-btn">Add Train!</button>
+                        </form>
+                    </div>
                 </div>
 
-                <!-- Schedule Table Display area -->
-                <div class="col-lg-9">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="text-center">Train Schedule</h5>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-sm table-striped table-dark table-hover" id="train-table">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">Train Name</th>
-                                        <th class="text-center">Destination</th>
-                                        <th class="text-center">First Train</th>
-                                        <th class="text-center" scope="col">Frequency (min)</th>
-                                        <th class="text-center" scope="col">Next Arrival</th>
-                                        <th class="text-center" scope="col">Minutes Away</th>
-                                        <!-- clear new train -->
-                                        <th class="text-center" scope="col">Remove</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="newTrain-table-row">
-                                    <!-- New train display here -->
-                                </tbody>
-                            </table>
-                        </div>
+            </div>
+
+            <!-- Schedule Table Display area -->
+            <div class="col-md-9 col-sm-9 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Train Schedule</h5>
                     </div>
+                    <!-- <div class="card-body"> -->
+                    <table class="table table-sm table-striped table-dark table-hover" id="train-table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Train Name</th>
+                                <th class="text-center">Destination</th>
+                                <th class="text-center">First Train</th>
+                                <th class="text-center" scope="col">Frequency (min)</th>
+                                <th class="text-center" scope="col">Next Arrival</th>
+                                <th class="text-center" scope="col">Minutes Away</th>
+                                <!-- clear new train -->
+                                <th class="text-center" scope="col">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody id="newTrain-table-row">
+                            <!-- New train display here -->
+                        </tbody>
+                    </table>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
+
+
     </div>
 
     <footer>
@@ -113,6 +114,7 @@
         crossorigin="anonymous"></script>
     <!-- JavaScript Link -->
     <script src="assets/javascript/app.js"></script>
+    <!-- CND and effect javascript links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="assets/javascript/effect.js"></script>
 </body>

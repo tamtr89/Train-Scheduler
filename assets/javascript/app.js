@@ -19,12 +19,10 @@ var frequency = 0;
 
 // Set current Time --- Month name, day of month, year, time	moment().format("LLL")
 function currentTime() {
-    var current = moment().format("LLL");
+    var current = moment().format("lll");
     $("#currentTime").html(current);
     setTimeout(currentTime, 1000);
-
 };
-
 
 //   Button for adding a new Train
 $("#submit-btn").on("click", function (event) {
@@ -108,4 +106,4 @@ $(document).on("click", ".remove", function () {
 currentTime();
 setInterval(function () {
     window.location.reload();
-}, 80000);
+}, 60000);
