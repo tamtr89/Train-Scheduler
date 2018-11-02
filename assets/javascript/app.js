@@ -108,4 +108,4 @@ $(document).on("click", ".remove", function () {
 currentTime();
 setInterval(function () {
     window.location.reload();
-}, 60000);
+}, 80000);
