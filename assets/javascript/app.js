@@ -86,6 +86,8 @@ database.ref().on("child_added", function (childSnapshot) {
     console.log("Next Train: ", moment(nextTrain).format("hh:mm"));
     // Remove Train 
     var childKey = childSnapshot.key;
+    console.log("child Key: ", childKey);
+    
     // Add each train's data into the table
     var newRow = $("<tr>");
     newRow.append($("<td class='text-center'>" + nameVal + "</td>"));
@@ -100,7 +102,10 @@ database.ref().on("child_added", function (childSnapshot) {
 // Function delete ROW
 $(document).on("click", ".remove", function () {
     keyRef = $(this).attr("data-key");
-    database.ref().child(keyref).remove();
+    database.ref().child(keyRef).remove();
     window.location.reload();
 });
 currentTime();
+setInterval(function () {
+    window.location.reload();
+}, 60000);

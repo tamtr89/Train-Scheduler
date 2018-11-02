@@ -8,6 +8,12 @@ body {
     background: black;
 }
 
+#display-4 {
+    font-family: 'Black Ops One', cursive;
+}
+#lead {
+    font-family: 'Satisfy', cursive;
+}
 #currentTime {
     background: white;
     color: black;
