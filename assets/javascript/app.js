@@ -97,6 +97,7 @@ database.ref().on("child_added", function (childSnapshot) {
     newRow.append($("<td class='text-center'><button class='remove btn btn-danger btn-xs>' data-key='" + childKey + "'>X</button></td>"));
     $("#newTrain-table-row").prepend(newRow);
 })
+
 // Function delete ROW
 $(document).on("click", ".remove", function () {
     keyRef = $(this).attr("data-key");
