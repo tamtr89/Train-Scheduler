@@ -20,7 +20,7 @@ When adding trains, administrators should be able to submit the following:
 <li>JavaScript</li>
 <li>jQuery for Dom Manipulation</li>
 <li>Firebase</li>
-<li>Moment.js<li>
+<li>Moment.js</li>
 
 <h4>Demo:</h4>
 https://tamtr89.github.io/Train-Scheduler/
