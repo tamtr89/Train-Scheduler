@@ -1,9 +1,10 @@
 body {
-    background-image: url("../images/trainStation.jpg");
+    background-image: url("../images/snowman.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     overflow: hidden;
+    back
 }
 
 #display-4 {
@@ -64,7 +65,7 @@ footer {
     width:35px;
     height:35px;
     position:absolute;
-    background: url("../images/red-lobed-fall-clipart-leaf.png");
+    background: url("../images/Snow-fall-png.png");
     background-size: 100%;
     z-index: 99;
   }
